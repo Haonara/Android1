@@ -22,8 +22,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="253dp"
-        android:layout_height="27dp"
+        android:layout_width="@dimen/layout_width"
+        android:layout_height="@dimen/layout_height"
         android:text="@string/city"
         android:textAlignment="center"
         android:textColor="@color/colorText"
@@ -38,8 +38,8 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="248dp"
-        android:layout_height="31dp"
+        android:layout_width="@dimen/layout_width"
+        android:layout_height="@dimen/layout_height"
         android:text="@string/temperature"
         android:textSize="@dimen/text_size_common"
         android:textColor="@color/colorText"
