@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.151" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_city_name"
         android:layout_width="@dimen/layout_width"
         android:layout_height="@dimen/layout_height"
         android:text="@string/city"
@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="0.258" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView_temperature"
         android:layout_width="@dimen/layout_width"
         android:layout_height="@dimen/layout_height"
         android:text="@string/temperature"
@@ -65,5 +65,35 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.931" />
+
+    <TextView
+        android:id="@+id/textView_wet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wet"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/text_size_common"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.649" />
+
+    <TextView
+        android:id="@+id/textView_wind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wind"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/text_size_common"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.708" />
 
 </android.support.constraint.ConstraintLayout>

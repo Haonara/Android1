@@ -3,22 +3,31 @@ package com.grishko.weather.model;
 import java.io.Serializable;
 
 public class Parcel implements Serializable{
-    private String text1;
-    private String text2;
+    private String city_name;
+    private String visibilityWet;
+    private String visibilityWind;
 
-    public String getText1() {
-        return text1;
+    public String getCity_name() {
+        return city_name;
     }
 
-    public void setText1(String text1) {
-        this.text1 = text1;
+    public void setCity_name(String city_name) {
+        this.city_name = city_name;
     }
 
-    public String getText2() {
-        return text2;
+    public String getVisibilityWet() {
+        return visibilityWet;
     }
 
-    public void setText2(String text2) {
-        this.text2 = text2;
+    public void setVisibilityWet(String visibilityWet) {
+        this.visibilityWet = visibilityWet;
+    }
+
+    public String getVisibilityWind() {
+        return visibilityWind;
+    }
+
+    public void setVisibilityWind(String visibilityWind) {
+        this.visibilityWind = visibilityWind;
     }
 }
