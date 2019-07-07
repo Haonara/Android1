@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.grishko.weather.R;
 import com.grishko.weather.model.Parcel;
@@ -27,7 +26,6 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        Toast.makeText(getApplicationContext(), "Second - onCreate()", Toast.LENGTH_SHORT).show();
         initViews();
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
