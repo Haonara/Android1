@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.grishko.weather.R;
 import com.grishko.weather.model.Parcel;
@@ -51,8 +52,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (receivedData != null) {
                     fromSecondActivity1.setText(receivedData.getCity_name());
                     String temp = "visible";
-                    //if(receivedData.getVisibilityWet().equalsIgnoreCase(temp)){fromSecondActivity2.setVisibility(View.VISIBLE);}
-                    if(receivedData.getVisibilityWind().equalsIgnoreCase(temp)){fromSecondActivity3.setVisibility(View.VISIBLE);}
+                    try {
+                        if(receivedData.getVisibilityWet().equalsIgnoreCase(temp)){
+                            fromSecondActivity2.setVisibility(View.VISIBLE);
+                        }
+                    }catch (Exception e){
+                        Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+
+                    try {
+                        if(receivedData.getVisibilityWind().equalsIgnoreCase(temp)){
+                            fromSecondActivity3.setVisibility(View.VISIBLE);
+                        }
+                    }catch (Exception e){
+                        Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+
                 }
             }
         }
