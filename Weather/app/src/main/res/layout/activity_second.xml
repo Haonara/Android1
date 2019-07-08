@@ -55,7 +55,6 @@
         android:id="@+id/editText_city_enter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:inputType="text"
         android:hint="@string/city"
         android:textColor="@color/colorText"
