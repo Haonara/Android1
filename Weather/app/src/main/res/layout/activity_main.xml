@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/stones"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,9 +21,9 @@
         app:layout_constraintVertical_bias="0.151" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="253dp"
-        android:layout_height="27dp"
+        android:id="@+id/textView_city_name"
+        android:layout_width="@dimen/textView_layout_width"
+        android:layout_height="@dimen/textView_layout_height"
         android:text="@string/city"
         android:textAlignment="center"
         android:textColor="@color/colorText"
@@ -37,9 +37,9 @@
         app:layout_constraintVertical_bias="0.258" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="248dp"
-        android:layout_height="31dp"
+        android:id="@+id/textView_temperature"
+        android:layout_width="@dimen/textView_layout_width"
+        android:layout_height="@dimen/textView_layout_height"
         android:text="@string/temperature"
         android:textSize="@dimen/text_size_common"
         android:textColor="@color/colorText"
@@ -49,5 +49,51 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.588" />
+
+    <Button
+        android:id="@+id/button_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorButton"
+        android:text="@string/button_settings"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/text_size_common"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.931" />
+
+    <TextView
+        android:id="@+id/textView_wet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wet"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/text_size_common"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.649" />
+
+    <TextView
+        android:id="@+id/textView_wind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wind"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/text_size_common"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.708" />
 
 </android.support.constraint.ConstraintLayout>
