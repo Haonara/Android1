@@ -8,5 +8,5 @@
     <string name="checkbox_wet">Влажность</string>
     <string name="checkbox_wind">Направление ветра</string>
     <string name="wet">Текущая влажность: 25%</string>
-    <string name="wind">Ветер южный, умеренный</string>
+    <string name="wind">Ветер южный</string>
 </resources>
