@@ -14,7 +14,7 @@ import com.grishko.weather.model.Parcel;
 
 import static com.grishko.weather.activities.SecondActivity.FROM_SECOND_ACTIVITY;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final int REQUEST_CODE_SECOND_A = 100;
     private TextView fromSecondActivity1;
@@ -28,6 +28,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
+        Intent data=getIntent();
+        if (data != null && data.getExtras() != null) {
+            Parcel receivedData = (Parcel) data.getExtras().get(FROM_SECOND_ACTIVITY);
+            if (receivedData != null) {
+                fromSecondActivity1.setText(receivedData.getCity_name());
+                String temp = "visible";
+                try {
+                    if(receivedData.getVisibilityWet().equalsIgnoreCase(temp)){
+                        fromSecondActivity2.setVisibility(View.VISIBLE);
+                    }
+                }catch (Exception e){
+                    Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                }
+
+                try {
+                    if(receivedData.getVisibilityWind().equalsIgnoreCase(temp)){
+                        fromSecondActivity3.setVisibility(View.VISIBLE);
+                    }
+                }catch (Exception e){
+                    Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        }
         secondActivityButton.setOnClickListener(MainActivity.this);
     }
 

@@ -12,12 +12,15 @@ import android.widget.EditText;
 import com.grishko.weather.R;
 import com.grishko.weather.model.Parcel;
 
-public class SecondActivity extends AppCompatActivity {
+import static com.grishko.weather.activities.MainActivity.REQUEST_CODE_SECOND_A;
+
+public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static String FROM_SECOND_ACTIVITY = "FROM_SECOND_ACTIVITY";
+    public static final int REQUEST_CODE_SECOND_A = 100;
 
     private EditText enterCityText;
-    private Button okButton;
+    Button okButton;
     private CheckBox wet;
     private CheckBox wind;
 
@@ -27,12 +30,13 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         initViews();
-        okButton.setOnClickListener(new View.OnClickListener() {
+        /*okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onSaveAndFinishClicked();
             }
-        });
+        });*/
+        okButton.setOnClickListener(SecondActivity.this);
     }
 
     private void initViews(){
@@ -54,7 +58,13 @@ public class SecondActivity extends AppCompatActivity {
 
         Intent dataToMainActivity = new Intent(this, MainActivity.class);
         dataToMainActivity.putExtra(FROM_SECOND_ACTIVITY, parcel);
+        startActivity(dataToMainActivity);
         setResult(Activity.RESULT_OK, dataToMainActivity);
         finish();
+    }
+
+    @Override
+    public void onClick(View v) {
+        onSaveAndFinishClicked();
     }
 }

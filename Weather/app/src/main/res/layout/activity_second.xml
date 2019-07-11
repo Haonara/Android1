@@ -2,9 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/stones"
+    style="@style/MyAppStyle"
     tools:context=".activities.SecondActivity">
 
     <Button
@@ -28,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/checkbox_wet"
+        android:textAlignment="viewStart"
         android:textColor="@color/colorText"
         android:textSize="@dimen/text_size_common"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,6 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/checkbox_wind"
+        android:textAlignment="viewStart"
         android:textColor="@color/colorText"
         android:textSize="@dimen/text_size_common"
         app:layout_constraintBottom_toBottomOf="parent"
