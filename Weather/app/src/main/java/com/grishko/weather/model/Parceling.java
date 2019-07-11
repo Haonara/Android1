@@ -2,10 +2,10 @@ package com.grishko.weather.model;
 
 import java.io.Serializable;
 
-public class Parcel implements Serializable{
+public class Parceling implements Serializable{
     private String city_name;
-    private String visibilityWet;
-    private String visibilityWind;
+    private boolean visibilityWet;
+    private boolean visibilityWind;
 
     public String getCity_name() {
         return city_name;
@@ -15,19 +15,20 @@ public class Parcel implements Serializable{
         this.city_name = city_name;
     }
 
-    public String getVisibilityWet() {
+    public boolean isVisibilityWet() {
         return visibilityWet;
     }
 
-    public void setVisibilityWet(String visibilityWet) {
+    public void setVisibilityWet(boolean visibilityWet) {
         this.visibilityWet = visibilityWet;
     }
 
-    public String getVisibilityWind() {
+    public boolean isVisibilityWind() {
         return visibilityWind;
     }
 
-    public void setVisibilityWind(String visibilityWind) {
+    public void setVisibilityWind(boolean visibilityWind) {
         this.visibilityWind = visibilityWind;
     }
+
 }
