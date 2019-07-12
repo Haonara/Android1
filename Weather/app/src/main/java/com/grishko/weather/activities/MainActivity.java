@@ -2,6 +2,8 @@ package com.grishko.weather.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static String FROM_SECOND_ACTIVITY = "FROM_SECOND_ACTIVITY";
 
     private EditText enterCityText;
-    Button okButton;
+    private Button okButton;
     private CheckBox wet;
     private CheckBox wind;
 

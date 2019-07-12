@@ -10,12 +10,13 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.grishko.weather.R;
+
 
 public class CitiesListFragment extends ListFragment {
 
     int currentPosition = 0;
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -36,9 +37,11 @@ public class CitiesListFragment extends ListFragment {
         setListAdapter(adapter);
     }
 
+
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         currentPosition = position;
         Toast.makeText(getActivity(),"position="+currentPosition,Toast.LENGTH_SHORT).show();
     }
+
 }

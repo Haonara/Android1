@@ -6,6 +6,7 @@ public class Parceling implements Serializable{
     private String city_name;
     private boolean visibilityWet;
     private boolean visibilityWind;
+    private int cityIndex;
 
     public String getCity_name() {
         return city_name;
@@ -31,4 +32,11 @@ public class Parceling implements Serializable{
         this.visibilityWind = visibilityWind;
     }
 
+    public int getCityIndex() {
+        return cityIndex;
+    }
+
+    public void setCityIndex(int cityIndex) {
+        this.cityIndex = cityIndex;
+    }
 }

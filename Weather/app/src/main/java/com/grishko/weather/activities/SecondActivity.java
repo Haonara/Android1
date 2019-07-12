@@ -21,6 +21,8 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     private TextView fromSecondActivity_humidity;
     private TextView fromSecondActivity_wind;
     private Button settingsButton;
+    //private String[] citiesNameArray;
+    //int currentIndex=0;
 
 
     @Override
@@ -65,6 +67,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         fromSecondActivity_cityname =findViewById(R.id.textView_city_name);
         fromSecondActivity_humidity =findViewById(R.id.textView_wet);
         fromSecondActivity_wind =findViewById(R.id.textView_wind);
+        //citiesNameArray=getResources().getStringArray(R.array.cities_list);
     }
 
     @Override protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -94,5 +97,10 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
             }
         }
     }
+
+   /* public void setCityName(int cityIndex){
+        String cityName=citiesNameArray[cityIndex];
+        fromSecondActivity_cityname.setText(cityName);
+    }*/
 
 }
