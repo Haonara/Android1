@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.grishko.weather.R;
+import com.grishko.weather.model.CityIndexParcel;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
