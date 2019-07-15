@@ -1,9 +1,8 @@
 package com.grishko.weather.activities;
 
-import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +11,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.grishko.weather.R;
-import com.grishko.weather.model.Parceling;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -30,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         initViews();
         okButton.setOnClickListener(this);
+        FragmentManager manager=getFragmentManager();
+        FragmentTransaction transaction=manager.beginTransaction();
+
     }
 
     private void initViews(){
@@ -39,8 +40,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         wind=findViewById(R.id.checkBox_wind);
     }
 
+
     private void onSaveAndFinishClicked() {
-        Parceling parceling = new Parceling();
+        /*Parceling parceling = new Parceling();
         parceling.setCity_name(enterCityText.getText().toString());
         if (wet.isChecked()){
             parceling.setVisibilityWet(true);
@@ -53,7 +55,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dataToMainActivity.putExtra(FROM_SECOND_ACTIVITY, parceling);
         startActivity(dataToMainActivity);
         setResult(Activity.RESULT_OK, dataToMainActivity);
-        finish();
+        finish();*/
+
+        Intent intent=new Intent(this, SecondActivity.class);
+        startActivity(intent);
     }
 
     @Override
