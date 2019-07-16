@@ -1,70 +1,124 @@
 package com.grishko.weather.activities;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
 
 import com.grishko.weather.R;
-import com.grishko.weather.model.Parcel;
+import com.grishko.weather.fragments.WeatherFragment;
+import com.grishko.weather.model.CityIndexParcel;
 
-import static com.grishko.weather.activities.MainActivity.REQUEST_CODE_SECOND_A;
+import static com.grishko.weather.fragments.WeatherFragment.PARCEL;
 
-public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
+public class SecondActivity extends AppCompatActivity  {
 
-    public static String FROM_SECOND_ACTIVITY = "FROM_SECOND_ACTIVITY";
-    public static final int REQUEST_CODE_SECOND_A = 100;
+    /*public static final int REQUEST_CODE_SECOND_A = 100;
+    private TextView fromSecondActivity_cityname;
+    private TextView fromSecondActivity_humidity;
+    private TextView fromSecondActivity_wind;
+    private Button settingsButton;*/
+    //private String[] citiesNameArray;
+    //int currentIndex=0;
 
-    private EditText enterCityText;
-    Button okButton;
-    private CheckBox wet;
-    private CheckBox wind;
 
+    public static void start(@NonNull Context context, @NonNull CityIndexParcel parcel) {
+        Intent intent=new Intent(context,SecondActivity.class);
+        intent.putExtra(PARCEL,parcel);
+        context.startActivity(intent);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        initViews();
-        /*okButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onSaveAndFinishClicked();
+
+        if (savedInstanceState == null) {
+            WeatherFragment weatherFragment = new WeatherFragment();
+            weatherFragment.setArguments(getIntent().getExtras());
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager
+                    .beginTransaction()
+                    .add(android.R.id.content, weatherFragment)
+                    .commit();
+        }
+
+        //initViews();
+        /*Intent data=getIntent();
+        if (data != null && data.getExtras() != null) {
+            Parceling receivedData = (Parceling) data.getExtras().get(FROM_SECOND_ACTIVITY);
+            if (receivedData != null) {
+                fromSecondActivity_cityname.setText(receivedData.getCity_name());
+                try {
+                    if(receivedData.isVisibilityWet()){
+                        fromSecondActivity_humidity.setVisibility(View.VISIBLE);
+                    }
+                }catch (Exception e){
+                    Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                }
+
+                try {
+                    if(receivedData.isVisibilityWind()){
+                        fromSecondActivity_wind.setVisibility(View.VISIBLE);
+                    }
+                }catch (Exception e){
+                    Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                }
+
             }
-        });*/
-        okButton.setOnClickListener(SecondActivity.this);
-    }
-
-    private void initViews(){
-        enterCityText=findViewById(R.id.editText_city_enter);
-        okButton=findViewById(R.id.button_ok);
-        wet=findViewById(R.id.checkBox_wet);
-        wind=findViewById(R.id.checkBox_wind);
-    }
-
-    private void onSaveAndFinishClicked() {
-        Parcel parcel = new Parcel();
-        parcel.setCity_name(enterCityText.getText().toString());
-        if (wet.isChecked()){
-            parcel.setVisibilityWet("visible");
         }
-        if (wind.isChecked()){
-            parcel.setVisibilityWind("visible");
-        }
-
-        Intent dataToMainActivity = new Intent(this, MainActivity.class);
-        dataToMainActivity.putExtra(FROM_SECOND_ACTIVITY, parcel);
-        startActivity(dataToMainActivity);
-        setResult(Activity.RESULT_OK, dataToMainActivity);
-        finish();
+        settingsButton.setOnClickListener(SecondActivity.this);*/
     }
 
-    @Override
+    /*@Override
     public void onClick(View v) {
-        onSaveAndFinishClicked();
-    }
+        Intent intent=new Intent(this, MainActivity.class);
+        startActivityForResult(intent, REQUEST_CODE_SECOND_A);
+    }*/
+
+    /*private void initViews(){
+        settingsButton =findViewById(R.id.button_settings);
+        fromSecondActivity_cityname =findViewById(R.id.textView_city_name);
+        fromSecondActivity_humidity =findViewById(R.id.textView_wet);
+        fromSecondActivity_wind =findViewById(R.id.textView_wind);
+        //citiesNameArray=getResources().getStringArray(R.array.cities_list);
+    }*/
+
+    /*@Override protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_SECOND_A) {
+            if (data != null && data.getExtras() != null) {
+                Parceling receivedData = (Parceling) data.getExtras().get(FROM_SECOND_ACTIVITY);
+                if (receivedData != null) {
+                    fromSecondActivity_cityname.setText(receivedData.getCity_name());
+                    try {
+                        if(receivedData.isVisibilityWet()){
+                            fromSecondActivity_humidity.setVisibility(View.VISIBLE);
+                        }
+                    }catch (Exception e){
+                        Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+
+                    try {
+                        if(receivedData.isVisibilityWind()){
+                            fromSecondActivity_wind.setVisibility(View.VISIBLE);
+                        }
+                    }catch (Exception e){
+                        Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }
+        }
+    }*/
+
+   /* public void setCityName(int cityIndex){
+        String cityName=citiesNameArray[cityIndex];
+        fromSecondActivity_cityname.setText(cityName);
+    }*/
+
 }
