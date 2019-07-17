@@ -5,73 +5,17 @@
     style="@style/MyAppStyle"
     tools:context=".activities.MainActivity">
 
-    <Button
-        android:id="@+id/button_ok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_ok"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.881"
-        style="@style/My_button_style" />
-
-    <CheckBox
-        android:id="@+id/checkBox_wet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/checkbox_wet"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.308"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.473"
-        style="@style/My_checkbox_style" />
-
-    <CheckBox
-        android:id="@+id/checkBox_wind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/checkbox_wind"
-        style="@style/My_checkbox_style"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.413"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.566" />
-
-    <EditText
-        android:id="@+id/editText_city_enter"
-        style="@style/My_edittext_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/city"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.345" />
 
     <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="406dp"
-        android:layout_height="217dp"
+        android:id="@+id/my_container"
+        android:layout_width="411dp"
+        android:layout_height="728dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" >
+        app:layout_constraintVertical_bias="0.0">
 
-        <fragment
-            android:id="@+id/cities_list_fragment"
-            android:name="com.grishko.weather.fragments.CitiesListFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
     </FrameLayout>
 </android.support.constraint.ConstraintLayout>

@@ -9,4 +9,6 @@
     <string name="checkbox_wind">Направление ветра</string>
     <string name="wet">Текущая влажность: 25%</string>
     <string name="wind">Ветер южный</string>
+    <string name="back">Назад</string>
+    <string name="cities_list">Выбор города</string>
 </resources>

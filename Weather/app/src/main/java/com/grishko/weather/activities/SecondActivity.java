@@ -11,7 +11,6 @@ import com.grishko.weather.R;
 import com.grishko.weather.fragments.WeatherFragment;
 import com.grishko.weather.model.CityIndexParcel;
 
-import static com.grishko.weather.fragments.WeatherFragment.PARCEL;
 
 public class SecondActivity extends AppCompatActivity  {
 
@@ -24,30 +23,15 @@ public class SecondActivity extends AppCompatActivity  {
     //int currentIndex=0;
 
 
-    public static void start(@NonNull Context context, @NonNull CityIndexParcel parcel) {
-        Intent intent=new Intent(context,SecondActivity.class);
-        intent.putExtra(PARCEL,parcel);
-        context.startActivity(intent);
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        if (savedInstanceState == null) {
-            WeatherFragment weatherFragment = new WeatherFragment();
-            weatherFragment.setArguments(getIntent().getExtras());
 
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager
-                    .beginTransaction()
-                    .add(android.R.id.content, weatherFragment)
-                    .commit();
-        }
 
-        //initViews();
+        //iitViews();
         /*Intent data=getIntent();
         if (data != null && data.getExtras() != null) {
             Parceling receivedData = (Parceling) data.getExtras().get(FROM_SECOND_ACTIVITY);

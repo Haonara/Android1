@@ -8,10 +8,14 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.grishko.weather.R;
 import com.grishko.weather.activities.SecondActivity;
 import com.grishko.weather.model.CityIndexParcel;
@@ -33,18 +37,13 @@ public class CitiesListFragment extends ListFragment {
         }
         createAndSetAdapter(activityContext);
 
-        if (savedInstanceState != null) {
-            cityIndexParcel = (CityIndexParcel) savedInstanceState.getSerializable(CURRENT_CITY_INDEX);
-        } else {
-            cityIndexParcel = new CityIndexParcel(currentPosition, getResources().getTextArray(R.array.cities_list)[currentPosition].toString());
-        }
     }
 
-    @Override
+    /*@Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putSerializable(CURRENT_CITY_INDEX, cityIndexParcel);
-    }
+    }*/
 
     private void createAndSetAdapter(@NonNull Context context) {
         ArrayAdapter adapter = ArrayAdapter.createFromResource(
@@ -58,12 +57,13 @@ public class CitiesListFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         currentPosition = position;
-        TextView cityNameView = (TextView) v;
-        cityIndexParcel = new CityIndexParcel(position, cityNameView.getText().toString());
-        okSettings(cityIndexParcel);
+        Toast.makeText(getActivity(),"position="+currentPosition,Toast.LENGTH_SHORT).show();
+        //TextView cityNameView = (TextView) v;
+        //cityIndexParcel = new CityIndexParcel(position, cityNameView.getText().toString());
+        //okSettings(cityIndexParcel);
     }
 
-    private void okSettings(@NonNull CityIndexParcel parcel){
+    /*private void okSettings(@NonNull CityIndexParcel parcel){
         if (getActivity() == null) {
             return;
         }
@@ -85,9 +85,8 @@ public class CitiesListFragment extends ListFragment {
             if (getContext() != null) {
                 SecondActivity.start(getContext(), parcel);
             }
-        }
+        }*/
 
 
 
-    }
 }
