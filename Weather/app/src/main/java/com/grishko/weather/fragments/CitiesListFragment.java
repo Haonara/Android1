@@ -9,12 +9,17 @@ import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.grishko.weather.R;
+import com.grishko.weather.activities.MainActivity;
+import com.grishko.weather.model.CityIndexParcel;
 
 public class CitiesListFragment extends ListFragment {
 
     public static final String TAG="CitiesListFragment";
+    public static final String INDEX="Index";
+    CityIndexParcel cityIndexParcel;
     int currentPosition = 0;
 
     @Override
@@ -39,7 +44,17 @@ public class CitiesListFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         currentPosition = position;
-        Toast.makeText(getActivity(),"position="+currentPosition,Toast.LENGTH_SHORT).show();
+        TextView text=(TextView)v;
+        String itemText=text.getText().toString();
+
+        cityIndexParcel=new CityIndexParcel(currentPosition,itemText);
+        Bundle bundle= new Bundle();
+        bundle.putSerializable(INDEX,cityIndexParcel);
+
+        if (getActivity()!=null){
+            ((MainActivity)getActivity()).openFragment(SettingsFragment.TAG, bundle);
+        }
+
     }
 
 

@@ -47,10 +47,9 @@ public class WeatherFragment extends Fragment {
         wind=view.findViewById(R.id.textView_wind);
         settings=view.findViewById(R.id.button_settings);
 
-        Bundle fromSettings=getArguments();
-        Parceling parceling=(Parceling) fromSettings.getSerializable(STATE);
-
         if(getArguments()!=null){
+            Parceling parceling=(Parceling) getArguments().getSerializable(STATE);
+
             city_name.setText(parceling.getCity_name());
 
             if (parceling.isVisibilityWet()){

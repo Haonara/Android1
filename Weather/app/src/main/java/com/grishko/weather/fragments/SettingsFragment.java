@@ -14,7 +14,10 @@ import android.widget.Toast;
 
 import com.grishko.weather.R;
 import com.grishko.weather.activities.MainActivity;
+import com.grishko.weather.model.CityIndexParcel;
 import com.grishko.weather.model.Parceling;
+
+import static com.grishko.weather.fragments.CitiesListFragment.INDEX;
 
 
 public class SettingsFragment extends Fragment {
@@ -47,6 +50,13 @@ public class SettingsFragment extends Fragment {
         wind=view.findViewById(R.id.checkBox_wind);
         ok=view.findViewById(R.id.button_ok);
         wet=view.findViewById(R.id.checkBox_wet);
+
+
+
+        if(getArguments()!=null){
+            CityIndexParcel cityIndexParcel=(CityIndexParcel)getArguments().getSerializable(INDEX);
+            enter_city.setText(cityIndexParcel.getCityName());
+        }
 
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
