@@ -16,43 +16,69 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.grishko.weather.R;
+import com.grishko.weather.activities.MainActivity;
+import com.grishko.weather.model.Parceling;
 
 
 public class SettingsFragment extends Fragment {
 
+    public static final String TAG="SettingsFragment";
+
+    private Parceling parceling;
+    public static final String STATE="STATE";
+
     private EditText enter_city;
     private CheckBox wet;
+    private Button cities;
     private CheckBox wind;
     private Button ok;
-    FrameLayout container;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.settings_fragment, container,false);
     }
+
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        //Button cities=getView().findViewById(R.id.button_back);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setRetainInstance(true);
+
+        enter_city=view.findViewById(R.id.editText_city_enter);
+        cities=view.findViewById(R.id.button_back);
+        wind=view.findViewById(R.id.checkBox_wind);
+        ok=view.findViewById(R.id.button_ok);
+        wet=view.findViewById(R.id.checkBox_wet);
         Toast.makeText(getActivity(),"Created", Toast.LENGTH_SHORT).show();
-        FragmentActivity activityContext=getActivity();
 
-        if (activityContext==null){
-            return;
-        }
-
-        /*cities.setOnClickListener(new View.OnClickListener() {
+        ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CitiesListFragment citiesListFragment=new CitiesListFragment();
-                FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.my_container,citiesListFragment).addToBackStack(null).commit();
+
+                String enteredCity=enter_city.getText().toString();
+
+                if(enteredCity.length()<1){
+                    Toast.makeText(getActivity(),"Wrong city name", Toast.LENGTH_SHORT).show();
+                }else{
+                    parceling=new Parceling(enter_city.getText().toString(), wet.isChecked(), wind.isChecked());
+
+                    Bundle bundle=new Bundle();
+                    bundle.putSerializable(STATE,parceling);
+
+                    if (getActivity()!=null){
+                        ((MainActivity)getActivity()).openFragment(WeatherFragment.TAG, bundle);
+                    }
+                }
             }
-        });*/
+        });
 
     }
 
 
-
+    @Override
+    public void onDestroyView() {
+        ok.setOnClickListener(null);
+        super.onDestroyView();
+    }
 }

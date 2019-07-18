@@ -7,11 +7,11 @@
 
     <TextView
         android:id="@+id/textView_city_name"
+        style="@style/My_textview_main_style"
         android:layout_width="411dp"
         android:layout_height="94dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="88dp"
         android:text="@string/city"
-        style="@style/My_textview_main_style"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -19,67 +19,66 @@
 
     <TextView
         android:id="@+id/textView_temperature"
+        style="@style/My_textview_common_style"
         android:layout_width="412dp"
         android:layout_height="45dp"
         android:text="@string/temperature"
-        style="@style/My_textview_common_style"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.66" />
+        app:layout_constraintVertical_bias="0.526" />
 
     <TextView
         android:id="@+id/textView_wet"
-        android:layout_width="408dp"
-        android:layout_height="47dp"
+        style="@style/My_textview_common_style"
+        android:layout_width="413dp"
+        android:layout_height="48dp"
         android:text="@string/wet"
         android:visibility="invisible"
-        style="@style/My_textview_common_style"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.728" />
+        app:layout_constraintVertical_bias="0.593" />
 
     <TextView
         android:id="@+id/textView_wind"
-        android:layout_width="408dp"
-        android:layout_height="55dp"
+        style="@style/My_textview_common_style"
+        android:layout_width="415dp"
+        android:layout_height="56dp"
         android:text="@string/wind"
         android:visibility="invisible"
-        style="@style/My_textview_common_style"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.806" />
+        app:layout_constraintVertical_bias="0.67" />
 
     <Button
         android:id="@+id/button_back"
+        style="@style/My_button_style"
         android:layout_width="114dp"
         android:layout_height="76dp"
         android:text="@string/button_settings"
-        style="@style/My_button_style"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.93" />
+        app:layout_constraintVertical_bias="0.81" />
 
     <ImageView
         android:id="@+id/imageView_weather"
-        android:layout_width="224dp"
-        android:layout_height="225dp"
+        android:layout_width="211dp"
+        android:layout_height="159dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45"
+        app:layout_constraintVertical_bias="0.333"
         app:srcCompat="@drawable/partly_cloudy" />
 </android.support.constraint.ConstraintLayout>
