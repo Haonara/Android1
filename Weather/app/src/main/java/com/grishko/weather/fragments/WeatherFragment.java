@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.grishko.weather.R;
+import com.grishko.weather.activities.MainActivity;
 import com.grishko.weather.model.Parceling;
 
 import static com.grishko.weather.fragments.SettingsFragment.STATE;
@@ -23,6 +24,7 @@ public class WeatherFragment extends Fragment {
     private TextView city_name;
     private TextView wet;
     private TextView wind;
+    private Button settings;
 
 
     @Override
@@ -43,6 +45,7 @@ public class WeatherFragment extends Fragment {
         city_name=view.findViewById(R.id.textView_city_name);
         wet=view.findViewById(R.id.textView_wet);
         wind=view.findViewById(R.id.textView_wind);
+        settings=view.findViewById(R.id.button_settings);
 
         Bundle fromSettings=getArguments();
         Parceling parceling=(Parceling) fromSettings.getSerializable(STATE);
@@ -63,6 +66,15 @@ public class WeatherFragment extends Fragment {
             }
 
         }
+
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getActivity()!=null){
+                    ((MainActivity)getActivity()).openFragment(SettingsFragment.TAG, null);
+                }
+            }
+        });
 
     }
 

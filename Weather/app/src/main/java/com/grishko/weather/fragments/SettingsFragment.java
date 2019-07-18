@@ -4,15 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.grishko.weather.R;
@@ -50,7 +47,6 @@ public class SettingsFragment extends Fragment {
         wind=view.findViewById(R.id.checkBox_wind);
         ok=view.findViewById(R.id.button_ok);
         wet=view.findViewById(R.id.checkBox_wet);
-        Toast.makeText(getActivity(),"Created", Toast.LENGTH_SHORT).show();
 
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +65,15 @@ public class SettingsFragment extends Fragment {
                     if (getActivity()!=null){
                         ((MainActivity)getActivity()).openFragment(WeatherFragment.TAG, bundle);
                     }
+                }
+            }
+        });
+
+        cities.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getActivity()!=null){
+                    ((MainActivity)getActivity()).openFragment(CitiesListFragment.TAG, null);
                 }
             }
         });

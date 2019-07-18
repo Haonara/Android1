@@ -12,8 +12,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 import com.grishko.weather.R;
 
-
-
 public class CitiesListFragment extends ListFragment {
 
     public static final String TAG="CitiesListFragment";
