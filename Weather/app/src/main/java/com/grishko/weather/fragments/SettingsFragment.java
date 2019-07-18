@@ -55,7 +55,9 @@ public class SettingsFragment extends Fragment {
 
         if(getArguments()!=null){
             CityIndexParcel cityIndexParcel=(CityIndexParcel)getArguments().getSerializable(INDEX);
-            enter_city.setText(cityIndexParcel.getCityName());
+            if (cityIndexParcel!=null){
+                enter_city.setText(cityIndexParcel.getCityName());
+            }
         }
 
         ok.setOnClickListener(new View.OnClickListener() {

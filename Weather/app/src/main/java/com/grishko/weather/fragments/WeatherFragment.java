@@ -48,22 +48,24 @@ public class WeatherFragment extends Fragment {
         settings=view.findViewById(R.id.button_settings);
 
         if(getArguments()!=null){
+
             Parceling parceling=(Parceling) getArguments().getSerializable(STATE);
 
-            city_name.setText(parceling.getCity_name());
+            if(parceling!=null){
+                city_name.setText(parceling.getCity_name());
 
-            if (parceling.isVisibilityWet()){
-                wet.setVisibility(View.VISIBLE);
-            }else{
-                wet.setVisibility(View.INVISIBLE);
+                if (parceling.isVisibilityWet()){
+                    wet.setVisibility(View.VISIBLE);
+                }else{
+                    wet.setVisibility(View.INVISIBLE);
+                }
+
+                if (parceling.isVisibilityWind()){
+                    wind.setVisibility(View.VISIBLE);
+                }else{
+                    wind.setVisibility(View.INVISIBLE);
+                }
             }
-
-            if (parceling.isVisibilityWind()){
-                wind.setVisibility(View.VISIBLE);
-            }else{
-                wind.setVisibility(View.INVISIBLE);
-            }
-
         }
 
         settings.setOnClickListener(new View.OnClickListener() {
@@ -76,8 +78,5 @@ public class WeatherFragment extends Fragment {
         });
 
     }
-
-
-
 
 }
