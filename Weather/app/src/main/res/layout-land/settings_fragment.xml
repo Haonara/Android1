@@ -9,7 +9,7 @@
 
     <EditText
         android:id="@+id/editText_city_enter"
-        style="@style/My_edittext_style"
+        style="@style/MyEdittextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/city"
@@ -22,7 +22,7 @@
 
     <Button
         android:id="@+id/button_ok"
-        style="@style/My_button_style"
+        style="@style/MyButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_ok"
@@ -35,7 +35,7 @@
 
     <Button
         android:id="@+id/button_back"
-        style="@style/My_button_style"
+        style="@style/MyButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cities_list"

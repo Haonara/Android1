@@ -16,33 +16,33 @@
         <item name="android:background">@drawable/stones</item>
     </style>
 
-    <style name="My_button_style">
+    <style name="MyButtonStyle">
         <item name="android:background">@color/colorButton</item>
         <item name="android:textColor">@color/colorText</item>
         <item name="android:textSize">@dimen/text_size_common</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="My_textview_common_style">
+    <style name="MyTextviewCommonStyle">
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/colorText</item>
         <item name="android:textSize">@dimen/text_size_common</item>
     </style>
 
-    <style name="My_textview_main_style">
+    <style name="MyTextviewMainStyle">
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/colorText</item>
         <item name="android:textSize">@dimen/text_size_label</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="My_checkbox_style">
+    <style name="MyCheckboxStyle">
         <item name="android:textAlignment">viewStart</item>
         <item name="android:textColor">@color/colorText</item>
         <item name="android:textSize">@dimen/text_size_common</item>
     </style>
 
-    <style name="My_edittext_style">
+    <style name="MyEdittextStyle">
         <item name="android:inputType">text</item>
         <item name="android:textColor">@color/colorText</item>
         <item name="android:textSize">@dimen/text_size_common</item>

@@ -3,18 +3,18 @@ package com.grishko.weather.model;
 import java.io.Serializable;
 
 public class Parceling implements Serializable{
-    private String city_name;
+    private String cityName;
     private boolean visibilityWet;
     private boolean visibilityWind;
 
-    public Parceling(String city_name, boolean visibilityWet, boolean visibilityWind) {
-        this.city_name = city_name;
+    public Parceling(String cityName, boolean visibilityWet, boolean visibilityWind) {
+        this.cityName = cityName;
         this.visibilityWet = visibilityWet;
         this.visibilityWind = visibilityWind;
     }
 
-    public String getCity_name() {
-        return city_name;
+    public String getCityName() {
+        return cityName;
     }
 
     public boolean isVisibilityWet() {

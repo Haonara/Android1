@@ -7,10 +7,10 @@
 
     <TextView
         android:id="@+id/textView_city_name"
-        style="@style/My_textview_main_style"
-        android:layout_width="411dp"
-        android:layout_height="94dp"
-        android:layout_marginTop="88dp"
+        style="@style/MyTextviewMainStyle"
+        android:layout_width="@dimen/text_width"
+        android:layout_height="@dimen/text_height"
+        android:layout_marginTop="@dimen/margin_top"
         android:text="@string/city"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -19,9 +19,9 @@
 
     <TextView
         android:id="@+id/textView_temperature"
-        style="@style/My_textview_common_style"
-        android:layout_width="412dp"
-        android:layout_height="45dp"
+        style="@style/MyTextviewCommonStyle"
+        android:layout_width="@dimen/text_width"
+        android:layout_height="@dimen/text_height"
         android:text="@string/temperature"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -32,9 +32,9 @@
 
     <TextView
         android:id="@+id/textView_wet"
-        style="@style/My_textview_common_style"
-        android:layout_width="413dp"
-        android:layout_height="48dp"
+        style="@style/MyTextviewCommonStyle"
+        android:layout_width="@dimen/text_width"
+        android:layout_height="@dimen/text_height"
         android:text="@string/wet"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,9 +46,9 @@
 
     <TextView
         android:id="@+id/textView_wind"
-        style="@style/My_textview_common_style"
-        android:layout_width="415dp"
-        android:layout_height="56dp"
+        style="@style/MyTextviewCommonStyle"
+        android:layout_width="@dimen/text_width"
+        android:layout_height="@dimen/text_height"
         android:text="@string/wind"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -60,9 +60,9 @@
 
     <Button
         android:id="@+id/button_settings"
-        style="@style/My_button_style"
-        android:layout_width="114dp"
-        android:layout_height="76dp"
+        style="@style/MyButtonStyle"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
         android:text="@string/button_settings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -73,8 +73,8 @@
 
     <ImageView
         android:id="@+id/imageView_weather"
-        android:layout_width="211dp"
-        android:layout_height="159dp"
+        android:layout_width="@dimen/image_width"
+        android:layout_height="@dimen/image_height"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
