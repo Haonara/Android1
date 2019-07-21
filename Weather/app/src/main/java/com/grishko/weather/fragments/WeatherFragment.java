@@ -1,6 +1,5 @@
 package com.grishko.weather.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,64 +13,70 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.grishko.weather.R;
-import com.grishko.weather.model.CityIndexParcel;
+import com.grishko.weather.activities.MainActivity;
+import com.grishko.weather.model.Parceling;
+
+import static com.grishko.weather.fragments.SettingsFragment.STATE;
 
 public class WeatherFragment extends Fragment {
 
-    public static final String PARCEL = "parcel";
+    public static final String TAG="WeatherFragment";
     private TextView city_name;
-    private TextView temperature;
     private TextView wet;
     private TextView wind;
+    private Button settings;
 
-    public static WeatherFragment createInstance(CityIndexParcel parcel){
-        WeatherFragment fragment=new WeatherFragment();
-        Bundle args=new Bundle();
-        args.putSerializable(PARCEL, parcel);
-        fragment.setArguments(args);
-        return fragment;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        setRetainInstance(true);
+        super.onCreate(savedInstanceState);
     }
-
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.weather_fragment, container,false);
-        return view;
+        return inflater.inflate(R.layout.weather_fragment, container,false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initViews();
-        CityIndexParcel parcel=getParcel();
-        if (parcel != null) {
-            city_name.setText(parcel.getCityName());
-        } else {
-            city_name.setText(getResources().getTextArray(R.array.cities_list)[0].toString());
+        city_name=view.findViewById(R.id.textView_city_name);
+        wet=view.findViewById(R.id.textView_wet);
+        wind=view.findViewById(R.id.textView_wind);
+        settings=view.findViewById(R.id.button_settings);
+
+        if(getArguments()!=null){
+
+            Parceling parceling=(Parceling) getArguments().getSerializable(STATE);
+
+            if(parceling!=null){
+                city_name.setText(parceling.getCity_name());
+
+                if (parceling.isVisibilityWet()){
+                    wet.setVisibility(View.VISIBLE);
+                }else{
+                    wet.setVisibility(View.INVISIBLE);
+                }
+
+                if (parceling.isVisibilityWind()){
+                    wind.setVisibility(View.VISIBLE);
+                }else{
+                    wind.setVisibility(View.INVISIBLE);
+                }
+            }
         }
-    }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        Toast.makeText(getActivity(),"Created", Toast.LENGTH_SHORT).show();
-    }
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getActivity()!=null){
+                    ((MainActivity)getActivity()).openFragment(SettingsFragment.TAG, null);
+                }
+            }
+        });
 
-    private void initViews(){
-        city_name=getView().findViewById(R.id.textView_city_name);
-        temperature=getView().findViewById(R.id.textView_temperature);
-        wet=getView().findViewById(R.id.textView_wet);
-        wind=getView().findViewById(R.id.textView_wind);
     }
-
-    public @Nullable CityIndexParcel getParcel() {
-        CityIndexParcel parcel = null;
-        if (getArguments() != null) {
-            parcel = (CityIndexParcel) getArguments().getSerializable(PARCEL);
-        }
-        return parcel;
-    }
-
 
 }
