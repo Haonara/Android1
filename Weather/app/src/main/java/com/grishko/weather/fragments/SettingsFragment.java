@@ -26,13 +26,10 @@ public class SettingsFragment extends Fragment {
 
     private Parceling parceling;
     public static final String STATE="STATE";
-
     private EditText enter_city;
     private CheckBox wet;
-    private Button cities;
     private CheckBox wind;
     private Button ok;
-
 
     @Nullable
     @Override
@@ -46,7 +43,7 @@ public class SettingsFragment extends Fragment {
         setRetainInstance(true);
 
         enter_city=view.findViewById(R.id.editText_city_enter);
-        cities=view.findViewById(R.id.button_back);
+        Button cities=view.findViewById(R.id.button_back);
         wind=view.findViewById(R.id.checkBox_wind);
         ok=view.findViewById(R.id.button_ok);
         wet=view.findViewById(R.id.checkBox_wet);

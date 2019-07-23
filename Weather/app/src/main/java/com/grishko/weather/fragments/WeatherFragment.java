@@ -4,13 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.grishko.weather.R;
 import com.grishko.weather.activities.MainActivity;
@@ -21,11 +19,6 @@ import static com.grishko.weather.fragments.SettingsFragment.STATE;
 public class WeatherFragment extends Fragment {
 
     public static final String TAG="WeatherFragment";
-    private TextView city_name;
-    private TextView wet;
-    private TextView wind;
-    private Button settings;
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,17 +35,18 @@ public class WeatherFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        city_name=view.findViewById(R.id.textView_city_name);
-        wet=view.findViewById(R.id.textView_wet);
-        wind=view.findViewById(R.id.textView_wind);
-        settings=view.findViewById(R.id.button_settings);
+        TextView cityName=view.findViewById(R.id.textView_city_name);
+        TextView wet=view.findViewById(R.id.textView_wet);
+        TextView wind=view.findViewById(R.id.textView_wind);
+        Button settings=view.findViewById(R.id.button_settings);
+        Button story=view.findViewById(R.id.button_story);
 
         if(getArguments()!=null){
 
             Parceling parceling=(Parceling) getArguments().getSerializable(STATE);
 
             if(parceling!=null){
-                city_name.setText(parceling.getCity_name());
+                cityName.setText(parceling.getCityName());
 
                 if (parceling.isVisibilityWet()){
                     wet.setVisibility(View.VISIBLE);
@@ -73,6 +67,15 @@ public class WeatherFragment extends Fragment {
             public void onClick(View v) {
                 if (getActivity()!=null){
                     ((MainActivity)getActivity()).openFragment(SettingsFragment.TAG, null);
+                }
+            }
+        });
+
+        story.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getActivity()!=null){
+                    ((MainActivity)getActivity()).openFragment(StoryFragment.TAG, null);
                 }
             }
         });

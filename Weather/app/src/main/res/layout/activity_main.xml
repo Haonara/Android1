@@ -8,8 +8,8 @@
 
     <FrameLayout
         android:id="@+id/my_container"
-        android:layout_width="411dp"
-        android:layout_height="728dp"
+        android:layout_width="@dimen/framelayout_layout_width"
+        android:layout_height="@dimen/framelayout_layout_height"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"

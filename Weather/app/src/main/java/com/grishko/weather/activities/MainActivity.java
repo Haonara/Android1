@@ -8,6 +8,7 @@ import android.os.Bundle;
 import com.grishko.weather.R;
 import com.grishko.weather.fragments.CitiesListFragment;
 import com.grishko.weather.fragments.SettingsFragment;
+import com.grishko.weather.fragments.StoryFragment;
 import com.grishko.weather.fragments.WeatherFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -41,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case WeatherFragment.TAG:
                 fragmentToOpen=new WeatherFragment();
+                break;
+            case StoryFragment.TAG:
+                fragmentToOpen=new StoryFragment();
                 break;
         }
 

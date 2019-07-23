@@ -10,5 +10,6 @@
     <string name="wet">Текущая влажность: 25%</string>
     <string name="wind">Ветер южный</string>
     <string name="back">Назад</string>
+    <string name="story">История</string>
     <string name="cities_list">Выбор города</string>
 </resources>
