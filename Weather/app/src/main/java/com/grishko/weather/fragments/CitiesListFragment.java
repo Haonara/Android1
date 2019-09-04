@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.grishko.weather.R;
 import com.grishko.weather.activities.MainActivity;
 import com.grishko.weather.model.CityIndexParcel;

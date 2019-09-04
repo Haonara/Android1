@@ -1,5 +1,10 @@
 package com.grishko.weather.fragments;
 
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,11 +19,16 @@ import com.grishko.weather.R;
 import com.grishko.weather.activities.MainActivity;
 import com.grishko.weather.model.Parceling;
 
+import java.util.Objects;
+
 import static com.grishko.weather.fragments.SettingsFragment.STATE;
 
 public class WeatherFragment extends Fragment {
 
     public static final String TAG="WeatherFragment";
+    private SensorManager sensorManager;
+    private Sensor sensorHumidity;
+    private float hum;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,6 +51,11 @@ public class WeatherFragment extends Fragment {
         Button settings=view.findViewById(R.id.button_settings);
         Button story=view.findViewById(R.id.button_story);
 
+        sensorManager= (SensorManager) Objects.requireNonNull(getActivity()).getSystemService(Context.SENSOR_SERVICE);
+        if(sensorManager!=null){
+            sensorHumidity=sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY);
+        }
+
         if(getArguments()!=null){
 
             Parceling parceling=(Parceling) getArguments().getSerializable(STATE);
@@ -49,6 +64,7 @@ public class WeatherFragment extends Fragment {
                 cityName.setText(parceling.getCityName());
 
                 if (parceling.isVisibilityWet()){
+                    wet.setText("");
                     wet.setVisibility(View.VISIBLE);
                 }else{
                     wet.setVisibility(View.INVISIBLE);
@@ -81,5 +97,28 @@ public class WeatherFragment extends Fragment {
         });
 
     }
+    private final SensorEventListener listenerHumidity = new SensorEventListener() {
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        }
 
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            hum=event.values[0];
+        }
+    };
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (sensorManager != null) {
+            sensorManager.registerListener(listenerHumidity,sensorHumidity,SensorManager.SENSOR_DELAY_NORMAL);
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        sensorManager.unregisterListener(listenerHumidity,sensorHumidity);
+    }
 }
